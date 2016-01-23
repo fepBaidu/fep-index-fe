@@ -1,47 +1,27 @@
-var webpack = require('webpack'),
-    path = require('path'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
-    host = 'http://sunbin.waimai.baidu.com';
+var path = require('path');
+var webpackData = require("./webpack.data.js");
+
 module.exports = {
-    host: host,
-    entry: [
-        'webpack-dev-server/client?' + host + ':3000',
-        'webpack/hot/only-dev-server',
-        './src/index.js'
-    ],
+    entry: webpackData.dev.entries,
     //devtool: 'inline-source-map',
     output: {
         path: path.join(__dirname, 'build'),
-        filename: 'index.js',
-        publicPath: '',
+        filename:  '[name].build.js',
+        publicPath: 'scripts/build/',
         hash: true
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
-        new webpack.optimize.CommonsChunkPlugin('common.js'),
-/*        new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                warnings: false
-            }
-        }),*/
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src/index.html'),
-            inject: true,
-            hash: true
-        })
-    ],
+    plugins: webpackData.dev.plugins,
     module: {
         loaders: [
-            {
-                test: /\.js$/,
-                loader: 'react-hot',
-                include: path.join(__dirname, 'src')
-            },
+            // {
+            //     test: /\.js$/,
+            //     loader: 'react-hot',
+            //     include: path.join(__dirname, 'scripts')
+            // },
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                include: path.join(__dirname, 'src'),
+                include: path.join(__dirname, 'scripts'),
                 query: {
                     presets: ['es2015', 'react']
                 }

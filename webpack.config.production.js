@@ -1,36 +1,18 @@
-var webpack = require('webpack'),
-    path = require('path'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
+var path = require('path'),
     cdnArr = [1, 2, 3],
     cdn = 'http://web' + cdnArr[ Math.floor( Math.random() * cdnArr.length ) ] + '.waimai.bdimg.com';;
+
+var webpackData = require("./webpack.data.js");
+
 module.exports = {
-    entry: [
-        './scripts/index/main.js'
-    ],
+    entry: webpackData.prod.entries,
     output: {
-        path: path.join(__dirname, 'build/index'),
-        filename: 'index.js'
+        path: path.join(__dirname, 'build'),
+        filename:  '[name].build.js',
+        publicPath: cdn + 'scripts/[name]/',
+        hash: true
     },
-    plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
-        new webpack.optimize.CommonsChunkPlugin('common.js'),
-        /*new webpack.optimize.UglifyJsPlugin({
-            compressor: {
-                warnings: false
-            }
-        }),*/
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'views/index.ejs'),
-            filename : "index.ejs",
-            inject: true,
-            hash: true
-        })
-    ],
+    plugins: webpackData.prod.plugins,
     module: {
         loaders: [
             {

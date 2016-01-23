@@ -1,4 +1,4 @@
-import content from "./content.js";
+import content from "./articleCall.js";
 import "../../styles/index/main.less";
 
 console.log(content);
