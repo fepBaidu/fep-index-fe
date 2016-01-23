@@ -1,0 +1,12 @@
+{
+  "name": "painter-discover",
+  "description": "the discovery module of the painter united",
+  "version": "0.0.0",
+  "homepage": "http://nosvn.shepinxiu.com/painter-h5/painter-h5.git",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery" : "~2.1.0",
+    "angular" : "~1.4.9"
+  }
+}
