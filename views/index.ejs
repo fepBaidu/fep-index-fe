@@ -1,7 +1,49 @@
 <!doctype html>
-<html>
-	<head><title>FEP进托邦</title></head>
+<html ng-app="index">
+	<head>
+		<title>FEP进托邦</title>
+		<meta charset="utf-8" />
+	</head>
 	<body>
-		<div id="content">Hello FEP...<%= content %></div>
+		<!-- <div ng-controller="HelloAngular">
+			<div ng-cloak class="ng-cloak" >
+				<p>{{greeting.text}},Angular</p>
+				<div id="content">Hello FEP...<%= content %></div>
+			</div>
+		</div> -->
+		<div id="top-bar" class="clearfix ng-cloak" ng-cloak>
+			<div id="sphere-container"></div>
+			<div class="logo"><img src="images/logo.png" /></div>
+			<div class="navigator" ng-controller="navigatorController" ng-init="movePosition = 0; loginForm = false;">
+				<ul>
+					<li ng-mouseenter="movePosition = 0" ng-mouseout="movePosition = 0">首页</li><li ng-mouseenter="movePosition = 1" ng-mouseout="movePosition = 0">博文</li><li ng-mouseenter="movePosition = 2" ng-mouseout="movePosition = 0">github</li><li ng-mouseenter="movePosition = 3" ng-mouseout="movePosition = 0">关于我们</li>
+				</ul>
+				<div class="nav-highlight" style="left: {{(movePosition * 100) + 'px'}}"></div>
+			</div>
+			<div class="login">
+				<div class="login-entry" ng-click="loginForm = !loginForm">登录</div>
+				<div class="login-wrapper" ng-class="{show : loginForm}">
+					<i class="arrow-refer"></i>
+					<form class="login-form">
+						<p class="col-name">
+							<label>账户<input type="text" name="log" size="20" tabindex="10"></label>
+						</p>
+						<p class="col-pwd">
+							<label>密码<input type="password" name="pwd" size="20" tabindex="20"></label>
+						</p>
+						<p class="col-submit">
+							<input type="submit" class="btn-submit" value="登录" tabindex="40">
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="top-bar-background"></div>
+		<script type="text/javascript" src="scripts/libs/angular/angular.min.js"></script>
+		<script type="text/javascript" src="scripts/libs/three.js/three.min.js"></script>
+		<script type="text/javascript" src="scripts/libs/three.js/CanvasRenderer.js"></script>
+		<script type="text/javascript" src="scripts/libs/three.js/Projector.js"></script>
+		<script>
+		</script>
 	</body>
 </html>

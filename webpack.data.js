@@ -29,7 +29,7 @@ webpackData['prod'] = {
 
 for(var i = 0; i < chunks.length; i++) {
     for(var p in webpackData) {
-        webpackData[p].entries[chunks[i]] = './scripts/' + chunks[i] + '/' + chunks[i] + '.js';
+        webpackData[p].entries[chunks[i]] = './scripts/entries/' + chunks[i] + '/' + chunks[i] + '.js';
         webpackData[p].plugins.push(
             new webpack.optimize.CommonsChunkPlugin({
                 name : chunks[i] + '-common',
