@@ -1,0 +1,44 @@
+<div id="top-bar" class="clearfix ng-cloak" ng-cloak>
+	<div id="sphere-container"></div>
+	<div class="logo"><a href="/"><img src="/images/logo.png" /></a></div>
+	<div class="navigator" ng-controller="navigatorController" ng-init="movePosition = <%= movePosition %>;">
+		<ul>
+			<a ng-mouseenter="movePosition = 0" ng-mouseout="movePosition = <%= movePosition %>" href="/">首页</a><a ng-mouseenter="movePosition = 1" ng-mouseout="movePosition = <%= movePosition %>" href="/article">博文</a><a ng-mouseenter="movePosition = 2" ng-mouseout="movePosition = <%= movePosition %>" href="https://github.com/fepBaidu">github</a><a ng-mouseenter="movePosition = 3" ng-mouseout="movePosition = <%= movePosition %>" href="/aboutus">关于我们</a>
+		</ul>
+		<div class="nav-highlight" style="left: {{(movePosition * 100) + 'px'}}"></div>
+	</div>
+	<div class="login" ng-controller="loginController" ng-init=" loginForm = false; logoutForm = false;">
+		<div class="login-component <%if(isLogin) {%>hide<%}%>">
+			<div class="login-entry" ng-click="toggleLoginForm()">登录</div>
+			<div class="login-wrapper" ng-class="{show : loginForm}">
+				<i class="arrow-refer"></i>
+				<div class="login-form">
+					<p class="col-name">
+						<label>账户<input type="text" name="log" size="20" tabindex="10" ng-model="username"></label>
+					</p>
+					<p class="col-pwd">
+						<label>密码<input type="password" name="pwd" size="20" tabindex="20" ng-model="password"></label>
+					</p>
+					<p class="col-tip">{{loginTip}}</p>
+					<p class="col-submit">
+						<button class="btn-submit" tabindex="40" ng-click="login()">登录</button>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="logout-component <%if(!isLogin) {%>hide<%}%>">
+			<a href="javascript:;" ng-click="toggleLogoutForm()">
+				<span class="triangle-down"></span>
+				<span class="user-info"><%=username%></span>
+			</a>
+			<div class="logout-wrapper" ng-class="{show : logoutForm}">
+				<i class="arrow-refer"></i>
+				<div class="logout-block" ng-click="logout()">
+					登出
+				</div>
+			</div>
+			<a href="/createArticle"><div class="create-article-button">新建博文</div></a>
+		</div>
+	</div>
+</div>
+<div id="top-bar-background"></div>

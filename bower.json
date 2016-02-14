@@ -7,6 +7,8 @@
   "private": true,
   "dependencies": {
     "angular" : "~1.4.9",
-    "three.js" : "0.72.0"
+    "three.js" : "0.72.0",
+    "angular-file-model" : "",
+    "angular-sanitize" : ""
   }
 }

@@ -1,0 +1,62 @@
+<!doctype html>
+<html ng-app="createArticle">
+	<head>
+		<title>FEP进托邦</title>
+		<meta charset="utf-8" />
+		<script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+	    <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
+	    <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"> </script>
+	</head>
+	<body>
+		<% include header.ejs %>
+		<div class="create-article-container" ng-controller="deployController">
+			<div class="article-title">
+				<div class="article-title-label">
+					<label>标题</label>
+				</div>
+				<div class="article-title-input">
+					<input class="input-primary" ng-model="title" />
+				</div>
+			</div>
+			<div class="article-cover-image clearfix">
+				<div class="article-cover-image-label">
+					<label>封面图</label>
+				</div>
+				<div class="article-cover-image-input clearfix">
+					<form class="form-signin clearfix" role="form" method="post" enctype='multipart/form-data'>
+						<div class="cover-image-name">{{coverImageName}}</div>
+				        <input id="file-input-el" class="select-cover-image-input" type="file" onchange="angular.element(this).scope().fileSelected()" file-model='fileModel' />
+						<div class="select-cover-image-button" ng-click="selectFile()">选择文件</div>
+				        <div class="upload-cover-image-button" ng-click="upload()">上 传</div>
+				        <div class="upload-tip">{{uploadTip}}</div>
+				        <div class="cover-image-path">{{coverImagePath}}</div>
+				      </form>
+				</div>
+			</div>
+			<div class="article-content">
+				<div class="article-content-label">
+					<label>内容</label>
+				</div>
+				<div class="article-content-input">
+					<script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+				</div>
+			</div>
+			<div class="article-tag">
+				<div class="article-tag-label">
+					<label>标签</label>
+				</div>
+				<div class="article-tag-input">
+					<input ng-model="tag" />
+					<span>多个关键字之间用“,”分隔，最多不超过10个</span>
+				</div>
+			</div>
+			<div class="deploy-tip">{{deployTip}}</div>
+			<div class="upload-button" ng-click="deploy()">发布</div>
+		</div>
+		<% include footer.ejs %>
+		<script type="text/javascript" src="/scripts/libs/angular-file-model/angular-file-model.js"></script>
+		<script type="text/javascript">
+			var ue = UE.getEditor('editor');
+		</script>
+	</body>
+</html>

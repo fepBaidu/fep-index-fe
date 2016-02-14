@@ -4,6 +4,7 @@
 	width: 100%;
 	position: absolute;
 	top: 0;
+	box-shadow: 0px 2px 3px #888888;
 	z-index: -1;
 }
 
@@ -38,7 +39,7 @@
 			height: 100px;
 			margin: 0;
 			padding: 0;
-			li {
+			a {
 				text-align: center;
 				width: 60px;
 				height: 80px;
@@ -48,8 +49,9 @@
 				font-size: 14px;
 				padding-left: 20px;
 				padding-right: 20px;
+				text-decoration: none;
 			}
-			li:hover {
+			a:hover {
 				color: @highlightColor!important;
 				text-decoration: none;
 			}
@@ -70,89 +72,160 @@
 		z-index: 150;
 		position: relative;
 		float: right;
-		.login-entry {
-			padding: 0 12px;
-			background: #b3b3b3;
-			text-decoration: none;
-			color: #fff;
-	    	line-height: 22px;
-	    	font-size: 10px;
-	    	position: relative;
-	    	top: 60px;
-	    	cursor: pointer;
-		}
-		.show {
-			display: block!important;
-		    opacity: 1!important;
-		    transform: translateY(0)!important;
-		}
-		.login-wrapper {
-		    position: absolute;
-		    right: 0;
-		    top: 85px;
-		    width: 220px;
-		    opacity: 0;
-		    transform: translateY(10px);
-		    transition: transform .2s ease,opacity .2s ease;
-		    backface-visibility: hidden;
-		    color: #fff;
-		    .arrow-refer {
-		    	width: 0;
-			    height: 0;
-			    border-left: 5px solid transparent;
-			    border-right: 5px solid transparent;
-			    border-bottom: 6px solid @highlightColor;
-			    position: relative;
-			    right: 20px;
-			    float: right;
-		    }
-		    .login-form {
-		    	background-color: @highlightColor;
+		.login-component {
+			.login-entry {
+				padding: 0 12px;
+				background: #b3b3b3;
+				text-decoration: none;
+				color: #fff;
+		    	line-height: 22px;
+		    	font-size: 10px;
 		    	position: relative;
-		    	top: 6px;
-		    	padding-left: 18px;
-		    	padding-bottom: 20px;
-		    	.col-name, .col-pwd {
-		    		padding-left: 8px;
-		    		margin: 0;
-		    		font-size: 12px;
-		    		input {
-		    			width: 125px;
-					    height: 14px;
-					    padding: 4px 5px;
-					    margin-left: 13px;
-					    outline: 0;
-					    border: 0;
-					    background: #fff;
-					    line-height: 14px;
-					    box-sizing: content-box;
-					    vertical-align: middle;
-		    		}
-		    	}
-		    	.col-name {
-		    		padding-top: 20px;
-		    	}
-		    	.col-pwd {
-		    		padding-top: 18px;
-		    	}
-		    	.col-submit {
-		    		margin: 0;
-		    		padding-top: 18px;
-		    		padding-left: 50px;
-		    		.btn-submit {
-		    			width: 52px;
-					    height: 23px;
-					    color: #999;
-					    padding: 0;
-					    cursor: pointer;
-					    background-color: #fff;
-					    border: 1px solid #000;
-					    box-sizing: content-box;
-					    font-size: 12px;
-		    		}
-		    	}
-		    }
+		    	top: 60px;
+		    	cursor: pointer;
+			}
+			.login-wrapper {
+			    position: absolute;
+			    right: 0;
+			    top: 85px;
+			    width: 220px;
+			    opacity: 0;
+			    transform: translateY(10px);
+			    transition: transform .2s ease,opacity .2s ease;
+			    backface-visibility: hidden;
+			    color: #fff;
+			    .arrow-refer {
+			    	width: 0;
+				    height: 0;
+				    border-left: 5px solid transparent;
+				    border-right: 5px solid transparent;
+				    border-bottom: 6px solid @highlightColor;
+				    position: relative;
+				    right: 20px;
+				    float: right;
+			    }
+			    .login-form {
+			    	background-color: @highlightColor;
+			    	position: relative;
+			    	top: 6px;
+			    	padding-left: 18px;
+			    	padding-bottom: 20px;
+			    	.col-name, .col-pwd {
+			    		padding-left: 8px;
+			    		margin: 0;
+			    		font-size: 12px;
+			    		input {
+			    			width: 125px;
+						    height: 14px;
+						    padding: 4px 5px;
+						    margin-left: 13px;
+						    outline: 0;
+						    border: 0;
+						    background: #fff;
+						    line-height: 14px;
+						    box-sizing: content-box;
+						    vertical-align: middle;
+			    		}
+			    	}
+			    	.col-name {
+			    		padding-top: 20px;
+			    	}
+			    	.col-pwd {
+			    		padding-top: 18px;
+			    	}
+			    	.col-tip {
+			    		margin: 0;
+			    		font-size: 12px;
+			    		color: #fff;
+			    		position: absolute;
+					    top: 94px;
+					    left: 71px;
+			    	}
+			    	.col-submit {
+			    		margin: 0;
+			    		padding-left: 50px;
+			    		padding-top: 31px;
+			    		.btn-submit {
+			    			width: 52px;
+						    height: 23px;
+						    color: #999;
+						    padding: 0;
+						    cursor: pointer;
+						    background-color: #fff;
+						    border: 1px solid #000;
+						    box-sizing: content-box;
+						    font-size: 12px;
+			    		}
+			    	}
+			    }
+			}
 		}
+		.logout-component {
+			position: relative;
+		    top: 45px;
+		    left: 70px;
+			a {
+				color: #606566;
+				font-size: 12px;
+			}
+			.triangle-down {
+				float: right;
+			    position: relative;
+			    top: 15px;
+			    right: 45px;
+			}
+			.user-info {
+				float: right;
+			    position: relative;
+			    top: 20px;
+			    right: 50px;
+			}
+			.logout-wrapper {
+				position: absolute;
+				right: 35px;
+				top: 45px;
+				opacity: 0;
+			    transform: translateY(10px);
+			    transition: transform .2s ease,opacity .2s ease;
+			    backface-visibility: hidden;
+			    .arrow-refer {
+			    	width: 0;
+				    height: 0;
+				    border-left: 5px solid transparent;
+				    border-right: 5px solid transparent;
+				    border-bottom: 6px solid #15287b;
+				    position: relative;
+				    right: 20px;
+				    float: right;
+			    }
+				.logout-block {
+					background: #15287b;
+					font-size: 12px;
+					color: #fff;
+					text-align: center;
+					width: 100px;
+					height: 25px;
+					line-height: 25px;
+					position: relative;
+					top: 6px;
+					cursor: pointer;
+				}		
+			}
+		}
+	}
+	.create-article-button {
+	    position: absolute;
+	    right: -60px;
+	    top: 10px;
+	    background: #18309a;
+	    color: #fff;
+	    padding: 10px;
+	    font-size: 12px;
+	}
+	.show {
+		display: block!important;
+	    opacity: 1!important;
+	    transform: translateY(0)!important;
 	}
 }
 

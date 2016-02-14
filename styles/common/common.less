@@ -19,6 +19,21 @@ body {
 
 .hide{display:none;}
 
+.triangle-down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    text-indent: -99999px;
+    vertical-align: top;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #000;
+    filter: alpha(opacity=30);
+    content: "\2193";
+    margin-top: 8px;
+    opacity: 1;
+}
+
 @titleColor : #606566;
 @contentColor : #999;
 @highlightColor: #18309a;

@@ -1,9 +1,19 @@
 <!doctype html>
-<html>
-	<head><title>FEP进托邦</title></head>
+<html ng-app="article">
+	<head>
+		<title>FEP进托邦</title>
+		<meta charset="utf-8" />
+	</head>
 	<body>
-		<div id="content">Hello FEP!!!!!<%= content %></div>
+		<% include header.ejs %>
+		<div id="article-list-container" ng-controller="articleController">
+			<div class="post-lists">
+				<ul class="post-list">
+					<articlecard ng-repeat="article in articleList" article-data="article">
+					</articlecard>
+				</ul>
+			</div>
+		</div>
+		<% include footer.ejs %>
 	</body>
-	<script type="text/javascript" src="scripts/libs/angular/angular.min.js"></script>
-	<script type="text/javascript" src="scripts/libs/three.js/three.min.js"></script>
 </html>

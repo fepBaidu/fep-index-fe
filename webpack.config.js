@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'build'),
         filename:  '[name].build.js',
-        publicPath: 'scripts/build/',
+        publicPath: '/scripts/build/',
         hash: true
     },
     plugins: webpackData.dev.plugins,

@@ -1,0 +1,16 @@
+<!doctype html>
+<html ng-app="articleDetail">
+	<head>
+		<title>FEP进托邦</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<% include header.ejs %>
+		<div id="article-detail-container" ng-controller="articleDetailController" ng-init="init(<%= articleId %>)">
+			<div class="title">{{title}}</div>
+			<div ng-bind-html="content" class="content"></div>
+		</div>
+		<% include footer.ejs %>
+		<script type="text/javascript" src="/scripts/libs/angular-sanitize/angular-sanitize.min.js"></script>
+	</body>
+</html>
