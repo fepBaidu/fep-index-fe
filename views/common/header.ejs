@@ -3,7 +3,7 @@
 	<div class="logo"><a href="/"><img src="/images/logo.png" /></a></div>
 	<div class="navigator" ng-controller="navigatorController" ng-init="movePosition = <%= movePosition %>;">
 		<ul>
-			<a ng-mouseenter="movePosition = 0" ng-mouseout="movePosition = <%= movePosition %>" href="/">首页</a><a ng-mouseenter="movePosition = 1" ng-mouseout="movePosition = <%= movePosition %>" href="/article">博文</a><a ng-mouseenter="movePosition = 2" ng-mouseout="movePosition = <%= movePosition %>" href="https://github.com/fepBaidu">github</a><a ng-mouseenter="movePosition = 3" ng-mouseout="movePosition = <%= movePosition %>" href="/aboutus">关于我们</a>
+			<a ng-mouseenter="movePosition = 0" ng-mouseout="movePosition = <%= movePosition %>" href="/">首页</a><a ng-mouseenter="movePosition = 1" ng-mouseout="movePosition = <%= movePosition %>" href="/article">博文</a><a ng-mouseenter="movePosition = 2" ng-mouseout="movePosition = <%= movePosition %>" href="https://github.com/wmfe">github</a><a ng-mouseenter="movePosition = 3" ng-mouseout="movePosition = <%= movePosition %>" href="/aboutus">关于我们</a>
 		</ul>
 		<div class="nav-highlight" style="left: {{(movePosition * 100) + 'px'}}"></div>
 	</div>
