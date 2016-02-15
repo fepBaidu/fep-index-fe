@@ -36,7 +36,6 @@ var init = function(module) {
 		};
 
 		$scope.upload = function() {
-			console.log($scope.fileModel);
 			var fd = new FormData();
 			var file = $scope.fileModel;
 			fd.append('file', file);
