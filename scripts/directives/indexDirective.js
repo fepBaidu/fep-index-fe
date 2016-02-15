@@ -15,7 +15,7 @@ var init = function(module) {
           							'<img src="{{articleData.cover_image}}" onerror="this.src=\'\'">' + 
           						'</div>' + 
         					'<p>{{articleData.title}}</p>' + 
-        					'<span class="date">{{articleData.user.username}} 发布于 {{articleData.createdAt.substring(0, articleData.createdAt.indexOf("T"))}}</span>' + 
+        					'<span class="date">{{articleData.user.nickname}} 发布于 {{articleData.createdAt.substring(0, articleData.createdAt.indexOf("T"))}}</span>' + 
        				 		'</a>' + 
       					'</li>'
 		}
