@@ -8,6 +8,7 @@
 		<% include header.ejs %>
 		<div id="article-detail-container" ng-controller="articleDetailController" ng-init="init(<%= articleId %>)">
 			<div class="title">{{title}}</div>
+			<div class="user-info">{{nickname}}&nbsp;&nbsp;发布于&nbsp;&nbsp;{{createTime}}</div>
 			<div ng-bind-html="content" class="content"></div>
 		</div>
 		<% include footer.ejs %>

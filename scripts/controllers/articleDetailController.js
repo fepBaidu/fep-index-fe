@@ -8,6 +8,8 @@ var init = function(module) {
 			articleDetailService.getArticleById($scope.articleId).then(function(res) {
 				if(res.data.errno == 0) {
 					$scope.title = res.data.data[0].title;
+					$scope.nickname = res.data.data[0].user.nickname;
+					$scope.createTime = res.data.data[0].createdAt.substring(0, res.data.data[0].createdAt.indexOf("T"));
 					$scope.content = $sce.trustAsHtml(res.data.data[0].content);
 				}
 			})
