@@ -23,7 +23,12 @@
 	</head>
 	<body>
 		<% include header.ejs %>
-		<div id="article-detail-container" ng-controller="articleDetailController" ng-init="init(<%= articleId %>)">
+		<div id="article-detail-container" ng-controller="articleDetailController" ng-init="init(<%= articleId %>,'<%=username%>');">
+			<div class="operation-buttons" ng-class="{show : createUser}">
+				<a class="edit-button" href="/editArticle/<%= articleId %>">编辑</a>
+				<span class="delete-button" ng-click="delete()">删除</span>
+				<span class="operation-tip">{{deleteTip}}</span>
+			</div>
 			<div class="title">{{title}}</div>
 			<div class="user-info">{{nickname}}&nbsp;&nbsp;发布于&nbsp;&nbsp;{{createTime}}</div>
 			<div ng-bind-html="content" class="content"></div>
@@ -31,8 +36,5 @@
 		<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
 		<% include footer.ejs %>
 		<script type="text/javascript" src="/scripts/libs/angular-sanitize/angular-sanitize.min.js"></script>
-		<script type="text/javascript">
-		     SyntaxHighlighter.all()
-		</script>
 	</body>
 </html>
