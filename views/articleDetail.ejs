@@ -3,6 +3,23 @@
 	<head>
 		<title>FEP进托邦</title>
 		<meta charset="utf-8" />
+		<link rel="stylesheet" href="/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" />
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>	
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushAS3.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushCpp.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushBash.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushCSharp.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushCss.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushDelphi.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushJava.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushPerl.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushPhp.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushPython.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrusJScript.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushRuby.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushSass.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushSql.js"></script>
+		<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shBrushXml.js"></script>
 	</head>
 	<body>
 		<% include header.ejs %>
@@ -11,7 +28,11 @@
 			<div class="user-info">{{nickname}}&nbsp;&nbsp;发布于&nbsp;&nbsp;{{createTime}}</div>
 			<div ng-bind-html="content" class="content"></div>
 		</div>
+		<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
 		<% include footer.ejs %>
 		<script type="text/javascript" src="/scripts/libs/angular-sanitize/angular-sanitize.min.js"></script>
+		<script type="text/javascript">
+		     SyntaxHighlighter.all()
+		</script>
 	</body>
 </html>
